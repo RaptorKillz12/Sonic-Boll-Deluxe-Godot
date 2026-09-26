@@ -1,0 +1,108 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmhcbv2cc2e9r"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_p82xh"]
+[ext_resource type="Texture2D" uid="uid://bsxc8nnw41ro2" path="res://assets/textures/menu_background.png" id="2_abc123"]
+[ext_resource type="Texture2D" uid="uid://dqw4mkjdqvkn8" path="res://assets/textures/menu_icons.png" id="3_def456"]
+
+[node name="MainMenu" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_p82xh")
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2_abc123")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+self_modulate = Color(1, 1, 1, 0.95)
+
+[node name="MenuContainer" type="Control" parent="."]
+anchor_left = 0.1
+anchor_top = 0.15
+anchor_right = 0.9
+anchor_bottom = 0.85
+
+[node name="IconGrid" type="GridContainer" parent="MenuContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+columns = 3
+theme_override_constants/h_separation = 80
+theme_override_constants/v_separation = 80
+
+[node name="Level1Button" type="Button" parent="MenuContainer/IconGrid"]
+custom_minimum_size = Vector2(100, 100)
+text = ""
+icon = ExtResource("3_def456")
+icon_alignment = 1
+
+[node name="SettingsButton" type="Button" parent="MenuContainer/IconGrid"]
+custom_minimum_size = Vector2(100, 100)
+text = ""
+icon = ExtResource("3_def456")
+icon_alignment = 1
+
+[node name="InfoButton" type="Button" parent="MenuContainer/IconGrid"]
+custom_minimum_size = Vector2(100, 100)
+text = ""
+icon = ExtResource("3_def456")
+icon_alignment = 1
+
+[node name="Level2Button" type="Button" parent="MenuContainer/IconGrid"]
+custom_minimum_size = Vector2(100, 100)
+text = ""
+icon = ExtResource("3_def456")
+icon_alignment = 1
+
+[node name="PlayButton" type="Button" parent="MenuContainer/IconGrid"]
+custom_minimum_size = Vector2(100, 100)
+text = ""
+icon = ExtResource("3_def456")
+icon_alignment = 1
+
+[node name="Level3Button" type="Button" parent="MenuContainer/IconGrid"]
+custom_minimum_size = Vector2(100, 100)
+text = ""
+icon = ExtResource("3_def456")
+icon_alignment = 1
+
+[node name="FPSLabel" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 80.0
+offset_bottom = 30.0
+text = "FPS: 60"
+theme_override_font_sizes/font_size = 12
+
+[node name="QuitLabel" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+offset_left = -30.0
+offset_top = -30.0
+text = "X"
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[connection signal="pressed" from="MenuContainer/IconGrid/Level1Button" to="." method="_on_level_pressed" binds=[1]]
+[connection signal="pressed" from="MenuContainer/IconGrid/SettingsButton" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MenuContainer/IconGrid/InfoButton" to="." method="_on_info_pressed"]
+[connection signal="pressed" from="MenuContainer/IconGrid/Level2Button" to="." method="_on_level_pressed" binds=[2]]
+[connection signal="pressed" from="MenuContainer/IconGrid/PlayButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MenuContainer/IconGrid/Level3Button" to="." method="_on_level_pressed" binds=[3]]
